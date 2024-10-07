@@ -1,5 +1,4 @@
-public class Valet implements HotelService {
-    
+public class Valet implements HotelService {   
     @Override
     public void provideService() {
     }
