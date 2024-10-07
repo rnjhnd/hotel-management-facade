@@ -1,3 +1,5 @@
+package FacadePattern;
+
 public class Cart implements HotelService{
     @Override
     public void provideService() {

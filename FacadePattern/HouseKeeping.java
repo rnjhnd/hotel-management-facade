@@ -1,3 +1,5 @@
+package FacadePattern;
+
 public class HouseKeeping implements HotelService{
     @Override
     public void provideService() {
