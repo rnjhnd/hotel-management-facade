@@ -16,13 +16,6 @@ HouseKeeping: A service class implementing the HotelService interface, responsib
 
 **HotelApp:** The client class that uses the FrontDesk facade to access and utilize hotel services seamlessly.
 
-In your solution you must provide the following in your Github link account:
-
-  * Problem statement (description of the problem. Just copy what is stated here.)
-  * UML Class Diagram
-  * Uploaded java codes for the solution.</div>
-
-
 ### UML Class Diagram:
 
 ![UML Class Diagram](https://github.com/user-attachments/assets/229ce6d6-f21e-45b6-81fa-3625acfd0d1c)
