@@ -1,4 +1,4 @@
-## 🏨 Hotel Management Facade
+## Hotel Management Facade
 
 A Java implementation of the Facade design pattern for a simplified hotel operations interface. The client interacts with a single entry point (`FrontDesk`) to request common services such as valet pickup, room cleaning, and luggage carts.
 
