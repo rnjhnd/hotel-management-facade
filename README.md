@@ -129,7 +129,7 @@ This project demonstrates the **Facade pattern**, which provides a unified inter
 - ✅ Improves readability and maintainability
 
 ## 📊 UML Class Diagram
-![UML Class Diagram](src/UML%20Class%20Diagram.png)
+<img width="1362" height="1280" alt="UML Class Diagram" src="https://github.com/user-attachments/assets/ee21370b-96ff-462c-a4a7-3f6728845353" />
 
 The diagram illustrates how the Facade coordinates subsystems:
 - **Client dependency**: `HotelApp` depends only on `FrontDesk`.
