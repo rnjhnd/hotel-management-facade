@@ -1,4 +1,4 @@
-# Hotel Management Facade
+# Hotel Management System
 
 A Java implementation of the **Facade Design Pattern** for simplified hotel operations management. This project demonstrates how to use a facade to provide a unified interface to multiple hotel service subsystems, making it easier for clients to interact with complex hotel operations.
 
