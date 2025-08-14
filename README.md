@@ -1,94 +1,106 @@
 # Hotel Management Facade
 
-A Java implementation of the Facade design pattern for a simplified hotel operations interface. The client interacts with a single entry point (`FrontDesk`) to request common services such as valet pickup, room cleaning, and luggage carts.
+A Java implementation of the **Facade Design Pattern** for simplified hotel operations management. This project demonstrates how to use a facade to provide a unified interface to multiple hotel service subsystems, making it easier for clients to interact with complex hotel operations.
 
-## 📋 Table of Contents
+## 📋 Overview
 
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Installation & Usage](#installation--usage)
-- [Code Examples](#code-examples)
-- [Design Patterns Used](#design-patterns-used)
-- [UML Class Diagram](#uml-class-diagram)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-
-## 🎯 Overview
-
-This project demonstrates how a Facade can provide a unified, high-level API for multiple subsystems. Instead of the client knowing about every service, it only calls the `FrontDesk`.
-
-### Key Benefits:
-- **Unified Interface**: One entry point for multiple services
-- **Loose Coupling**: Client is decoupled from subsystem details
-- **Simplicity**: Clear, intention-revealing API
-- **Extensibility**: Easy to add new services behind the facade
+The Hotel Management Facade provides a single, simplified interface (`FrontDesk`) for accessing various hotel services including valet parking, housekeeping, and luggage cart services. Instead of clients needing to interact with each service subsystem directly, they can use the facade to access all services through a clean, high-level API.
 
 ## 🏗️ Architecture
 
-The system follows the Facade pattern with these core components:
+This project implements the **Facade Design Pattern** with the following components:
 
-### Core Classes:
-- **`FrontDesk`**: The facade that exposes high-level operations
-- **`Valet`**: Subsystem handling vehicle pickup
-- **`HouseKeeping`**: Subsystem handling room cleaning
-- **`Cart`**: Subsystem handling luggage carts
-- **`HotelService`**: Common interface for services
-- **`HotelApp`**: Client that uses the facade
+- **FrontDesk**: The facade that provides a unified interface to all hotel services
+- **HotelService Interface**: Defines the contract for all hotel service implementations
+- **Service Subsystems**: Valet, HouseKeeping, and Cart service implementations
+- **HotelApp**: Main application demonstrating the facade pattern in action
 
-### Design Principles:
-- **Single Responsibility**: Each service class has a focused role
-- **Open/Closed Principle**: Add new services without modifying the client
-- **Encapsulation**: Hides subsystem complexity behind the facade
+### Design Pattern Benefits
 
-## ✨ Features
+- **Simplified Interface**: Clients interact with one facade instead of multiple subsystems
+- **Loose Coupling**: Client code is decoupled from subsystem implementation details
+- **Easier Maintenance**: Changes to subsystems don't affect client code
+- **Improved Readability**: Clear, intention-revealing API for hotel operations
 
-### 🔧 Service Orchestration
-- High-level methods: `pickUpVehicle`, `cleanRoom`, `requestCart`
-- Delegation to the proper subsystem
+## 📊 UML Class Diagram
 
-### 🧰 Unified Interface
-- One simple API for common hotel operations
+![UML Class Diagram](https://github.com/user-attachments/assets/ee21370b-96ff-462c-a4a7-3f6728845353)
 
-### 🔄 Extensibility
-- Add new services by implementing `HotelService` and extending `FrontDesk`
+The following diagram illustrates:
+- The architecture of the Hotel Management Facade
+- Relationships between the core components:
+  - The `FrontDesk` facade class
+  - The `HotelService` interface
+  - Concrete implementations: `Valet`, `HouseKeeping`, `Cart`
+  - The main application class `HotelApp`
+- How the Facade design pattern is applied in this project
+
+## 🚀 Features
+
+- **Unified Service Interface**: Single entry point for all hotel services
+- **Service Orchestration**: High-level methods that delegate to appropriate subsystems
+- **Extensible Design**: Easy to add new hotel services
+- **Clean Architecture**: Well-structured, maintainable code
+- **Type-Safe Operations**: Strong typing for all service operations
 
 ## 📁 Project Structure
 
 ```
 hotel-management-facade/
 ├── src/
-│   ├── Cart.java                 # Luggage cart service (subsystem)
-│   ├── FrontDesk.java            # Facade exposing high-level API
-│   ├── HotelApp.java             # Client / entry point
-│   ├── HotelService.java         # Service interface
-│   ├── HouseKeeping.java         # Room cleaning service (subsystem)
-│   ├── UML Class Diagram.png     # Class diagram
-│   └── Valet.java                # Valet service (subsystem)
-└── README.md                     # Project documentation
+│   ├── FrontDesk.java              # Facade providing unified interface
+│   ├── HotelService.java           # Service interface contract
+│   ├── Valet.java                  # Valet parking service implementation
+│   ├── HouseKeeping.java           # Housekeeping service implementation
+│   ├── Cart.java                   # Luggage cart service implementation
+│   └── HotelApp.java               # Main application demo
+└── README.md                       # Project documentation
 ```
 
-## 🚀 Installation & Usage
+## 🛠️ Installation & Setup
 
 ### Prerequisites
-- Java 8 or higher
 
-### Running the Application (Windows PowerShell)
+- Java Development Kit (JDK) 8 or higher
+- Any Java IDE (IntelliJ IDEA, Eclipse, VS Code, etc.)
 
-1. Navigate to the project root
-2. Compile the sources to an output directory
-3. Run the main class
+### Getting Started
 
-```powershell
-cd "C:\Users\Ellaine Dale\Downloads\hotel-management-facade"
-mkdir out
-javac -d out src/*.java
-java -cp out FacadePattern.HotelApp
+1. **Clone or download** the project files
+2. **Navigate** to the project directory
+3. **Compile** the Java files:
+   ```bash
+   javac src/*.java
+   ```
+4. **Run** the application:
+   ```bash
+   java -cp src FacadePattern.HotelApp
+   ```
+
+## 📖 Usage
+
+### Basic Usage
+
+The main application (`HotelApp.java`) demonstrates how to use the facade pattern:
+
+```java
+// Create the front desk facade
+FrontDesk frontDesk = new FrontDesk();
+
+// Request valet service
+frontDesk.pickUpVehicle("XYZ-1234");
+
+// Request housekeeping service
+frontDesk.cleanRoom(42);
+
+// Request luggage cart service
+frontDesk.requestCart(3);
 ```
 
 ### Expected Output
+
+When you run the application, you'll see:
+
 ```
 Vehicle with Plate Number XYZ-1234 has been successfully picked up!
 
@@ -97,81 +109,64 @@ Room 42 has been tidied up and refreshed!
 3 cart/s are on their way!
 ```
 
-## 💻 Code Examples
+## 🔧 Extending the Project
 
-### Using the Facade
+### Adding New Hotel Services
+
+To add a new hotel service (e.g., `ConciergeService`):
+
+1. **Create** a new class implementing the `HotelService` interface
+2. **Add** the service to the `FrontDesk` facade
+3. **Implement** the required methods and add facade methods
+
+Example:
 ```java
-import FacadePattern.FrontDesk;
-
-public class Demo {
-    public static void main(String[] args) {
-        FrontDesk frontDesk = new FrontDesk();
-        frontDesk.pickUpVehicle("XYZ-1234");
-        frontDesk.cleanRoom(42);
-        frontDesk.requestCart(3);
+public class ConciergeService implements HotelService {
+    @Override
+    public void provideService() {
+        // Implementation details
+    }
+    
+    public void bookRestaurant(String restaurant, String time) {
+        System.out.println("Reservation confirmed at " + restaurant + " for " + time);
     }
 }
 ```
 
-## 🎨 Design Patterns Used
+Then add to FrontDesk:
+```java
+private ConciergeService conciergeService;
+
+public void bookRestaurant(String restaurant, String time) {
+    conciergeService.bookRestaurant(restaurant, time);
+}
+```
+
+## 🎯 Design Patterns Used
 
 ### Facade Pattern
-This project demonstrates the **Facade pattern**, which provides a unified interface to a set of interfaces in a subsystem, making the subsystem easier to use.
+- **Purpose**: Provide a unified interface to a set of interfaces in a subsystem
+- **Benefits**: Simplifies complex interactions and reduces coupling
+- **Implementation**: `FrontDesk` acts as the facade, coordinating multiple hotel services
 
-**Key Components:**
-- **Facade** (`FrontDesk`): High-level interface for clients
-- **Subsystems** (`Valet`, `HouseKeeping`, `Cart`): Concrete services
-- **Client** (`HotelApp`): Uses the facade instead of interacting with subsystems directly
-
-**Benefits:**
-- ✅ Simplifies complex interactions
-- ✅ Reduces coupling between client and subsystems
-- ✅ Improves readability and maintainability
-
-## 📊 UML Class Diagram
-<img width="1362" height="1280" alt="UML Class Diagram" src="https://github.com/user-attachments/assets/ee21370b-96ff-462c-a4a7-3f6728845353" />
-
-The diagram illustrates how the Facade coordinates subsystems:
-- **Client dependency**: `HotelApp` depends only on `FrontDesk`.
-- **Facade role**: `FrontDesk` aggregates `Valet`, `HouseKeeping`, and `Cart`, delegating requests to them.
-- **Common contract**: `Valet`, `HouseKeeping`, and `Cart` implement the `HotelService` interface.
-- **Exposed operations**: `FrontDesk` offers `pickUpVehicle`, `cleanRoom`, and `requestCart`, which proxy to the corresponding subsystem methods.
-
-## 🔮 Future Enhancements
-
-### Potential Features:
-- **New Services**: Concierge, Room Service, Spa, Laundry
-- **Request Scheduling**: Queue and prioritize service requests
-- **Logging & Monitoring**: Track requests and performance
-- **Error Handling**: Rich exceptions and retries for failed operations
-
-### Technical Improvements:
-- **Dependency Injection**: Provide services to `FrontDesk` via constructor
-- **Testing**: Unit tests with mocks for subsystems
-- **CLI/Args**: Parameterize inputs for demo runs
-- **Build Tooling**: Optional Maven/Gradle setup
+### Interface Segregation
+- **Purpose**: Define a common contract for all hotel services
+- **Benefits**: Ensures consistency across service implementations
+- **Implementation**: `HotelService` interface provides the contract for all services
 
 ## 🤝 Contributing
 
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m "Add amazing feature"`)
-4. Push the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow Java coding conventions
-- Keep classes focused; prefer small, cohesive services
-- Add tests for new functionality
-- Update documentation as needed
+Feel free to contribute to this project by:
+- Adding new hotel services
+- Improving documentation
+- Enhancing the facade pattern implementation
+- Adding unit tests
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-
 ---
 
-**Note:** This implementation demonstrates clean code principles and design patterns best practices. The Facade pattern is particularly useful when you need to provide a unified, simplified interface to a complex set of subsystems, reducing coupling and improving usability without changing the underlying services.
+**Note**: This implementation demonstrates clean code principles and design patterns best practices. The Facade pattern is particularly useful when you need to provide a simplified interface to a complex subsystem, making it easier to use while hiding the complexity of the underlying services.
+
